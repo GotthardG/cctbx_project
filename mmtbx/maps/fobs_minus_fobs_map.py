@@ -221,6 +221,8 @@ class compute_fo_minus_fo_map(object):
       y=fobs_2.data()).coefficient()
     num = flex.sum(flex.abs(fobs_1.data()-fobs_2.data()))
     den = flex.sum(flex.abs(fobs_2.data()+fobs_2.data())/2)
+    overall_r = num / den
+    print(('Overall R-factor:', format_value("%6.4f", overall_r)), file=log)
     self.r_factor = None
     if (den != 0):
       self.r_factor = num / den
